@@ -12,7 +12,7 @@ import Experience from "./sections/Experience";
 import Testimonials from "./sections/Testimonials";
 import Contact from "./sections/Contact";
 import Footer from "./sections/Footer";
-
+import MusicPlayer from "./components/MusicPlayer";
 export default function App() {
   const [introDone, setIntroDone] = useState(false);
 
@@ -25,7 +25,7 @@ export default function App() {
           <CustomCursor />
           <ParticlesBackground />
           <Navbar />
-
+  <MusicPlayer />
           <Home />
           <About />
           <Skills />

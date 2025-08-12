@@ -4,9 +4,9 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function IntroAnimation({ onFinish }) {
   const greetings = [
-    "Hello", "नमस्ते", "Hola", "Bonjour", "こんにちは",
-    "Ciao", "안녕하세요", "Olá", "Здравствуйте",
-    "Merhaba", "مرحبا", "Γειά", "สวัสดี", "Hej", "Hallo", "你好", "Salam"
+    "Hello", "नमस्ते", "Hola", "Bonjour",
+    "Ciao",  "Olá", "Здравствуйте",
+    "Merhaba", "Γειά", "Hej", "Hallo", "Salam"
   ];
 
   const [index, setIndex] = useState(0);

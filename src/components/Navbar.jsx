@@ -27,7 +27,7 @@ export default function Navbar() {
             href="#contact"
             className="bg-gradient-to-r from-pink-500 to-blue-500 text-white px-5 py-2 rounded-full font-medium shadow-lg hover:opacity-90 transition-opacity duration-300"
           >
-            Contact Me
+            React Out
           </a>
         </div>
       </nav>
