@@ -2,16 +2,14 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import avatar from "../assets/avator.png";
-import { FaXTwitter, FaLinkedinIn, FaGithub } from "react-icons/fa6";
-import { FaYoutube, FaInstagram } from "react-icons/fa6";
+import { FaLinkedinIn, FaGithub, FaEnvelope, FaWhatsapp } from "react-icons/fa6";
 import ParticleBackground from "../components/ParticlesBackground";
 
 const socials = [
-  { Icon: FaYoutube, label: "YouTube", href: "https://www.youtube.com/@gauravbitss" },
-  { Icon: FaXTwitter, label: "X", href: "https://x.com/gauravbuilds" },
-  { Icon: FaLinkedinIn, label: "LinkedIn", href: "https://www.linkedin.com/in/gaurav-gupta-4179671b0/" },
-  { Icon: FaInstagram, label: "Instagram", href: "https://www.instagram.com/gauravbits/" },
-  { Icon: FaGithub, label: "GitHub", href: "https://github.com/gauravgupta364" },
+  { Icon: FaLinkedinIn, label: "LinkedIn", href: "https://linkedin.com/in/viveks51" },
+  { Icon: FaGithub, label: "GitHub", href: "https://github.com/VivekS51" },
+  { Icon: FaEnvelope, label: "Email", href: "mailto:viveksagar51@gmail.com" },
+  { Icon: FaWhatsapp, label: "WhatsApp", href: "https://wa.me/918002183838" },
 ];
 
 
@@ -33,7 +31,7 @@ const glowVariants = {
 
 const Home = React.forwardRef((props, ref) => {
   const roles = useMemo(
-    () => ["Software Developer", "Web Developer", "Content Creator"],
+    () => ["Cloud Engineer", "Web Developer", "DevOps Engineer"],
     []
   );
   const [index, setIndex] = useState(0);
@@ -124,7 +122,7 @@ const Home = React.forwardRef((props, ref) => {
               Hello, I&apos;m
               <br />
               <span className="text-white font-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl lg:whitespace-nowrap">
-                Gaurav Gupta
+                Vivek Sagar
               </span>
             </motion.h1>
 
@@ -135,9 +133,8 @@ const Home = React.forwardRef((props, ref) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.8 }}
             >
-              I turn complex ideas into seamless, high-impact web experiences —
-              building modern, scalable, and lightning-fast applications that
-              make a difference.
+              Building scalable, secure, and high-performance cloud infrastructure using modern DevOps practices.
+              Focused on automation, reliability, and continuous improvement across cloud environments.
             </motion.p>
 
             {/* buttons */}
@@ -156,8 +153,8 @@ const Home = React.forwardRef((props, ref) => {
                 View My Work
               </a>
               <a
-                href="/Resume.pdf"
-                download
+                href="/Vivek_Sagar_Resume.pdf"
+                download="Vivek_Sagar_Resume.pdf"
                 className="px-6 py-3 rounded-full text-lg font-medium text-black bg-white 
                 hover:bg-gray-200 shadow-lg hover:scale-105 transition-all"
               >
@@ -214,7 +211,7 @@ const Home = React.forwardRef((props, ref) => {
           />
           <motion.img
             src={avatar}
-            alt="Gaurav Gupta avatar"
+            alt="Vivek Sagar avatar"
             className="absolute top-1/2 -translate-y-1/2 object-contain select-none pointer-events-none"
             style={{ right: "-30px", width: "min(45vw, 780px)", maxHeight: "90vh" }}
             initial={{ opacity: 0, y: 40, scale: 0.95 }}

@@ -6,29 +6,26 @@ import { motion, useScroll, useTransform } from "framer-motion";
 // Array of experience objects containing job details
 const experiences = [
   {
-    role: "Web Developer",
-    company: "Brain Mentors",
-    duration: "2022",
+    role: "Full Stack Developer",
+    company: "Olipop (Project)",
+    duration: "Feb 2026 – Present",
     description:
-      "Worked with team to build high-performance apps, integrated AI features, and improved engagement by 10%.",
+      "Developing a modern cold drink brand website with responsive layouts using React.js and Tailwind CSS. Optimizing performance with Vite build tooling.",
   },
-  
   {
-    role: "Web Developer Intern",
-    company: "Mobisoft Technologies",
-    duration: "2022 - 2023",
+    role: "Frontend Developer",
+    company: "TeaseTrails (Project)",
+    duration: "Sep 2025 – Oct 2025",
     description:
-      "In this internship , I gained valuable hands on experience and exposure to various aspects of web development.",
+      "Created a visually immersive travel website with smooth animations and interactive visuals. Improved visual storytelling using GSAP-powered animations.",
   },
-{
-    role: "Graduate Engineer",
-    company: "HCL Technologies",
-    duration: "2024 - 2025",
+  {
+    role: "Trainee",
+    company: "CSE Pathshala",
+    duration: "Jun 2025 – Jul 2025",
     description:
-      "Built the frontend of a GenAI-powered PV Intake Application using Next.js and TypeScript for a U.S life sciences client, enabling automated patient report processing across global regions.",
+      "Completed advanced training in Data Structures and Object-Oriented Programming using C++. Implemented concepts like inheritance, polymorphism, and encapsulation.",
   },
-
-
 ];
 
 // Reusable component to render each experience item with animations

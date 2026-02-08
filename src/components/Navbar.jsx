@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import OverlayMenu from "./OverlayMenu";
 import { FiMenu } from "react-icons/fi";
-import Logo from "../assets/Logo.png"; // Adjust path
+import Logo from "../assets/rocket_logo.png"; // Adjust path
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -32,9 +32,18 @@ export default function Navbar() {
     };
   }, []);
 
+  const [scrolled, setScrolled] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
-      // If on homepage, never hide navbar
+      // Check for transparency
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+
+      // Visibility logic (existing)
       if (forceVisible) {
         setVisible(true);
         return;
@@ -43,13 +52,9 @@ export default function Navbar() {
       const currentScrollY = window.scrollY;
 
       if (currentScrollY > lastScrollY.current) {
-        // scrolling down -> hide
         setVisible(false);
       } else {
-        // scrolling up -> show
         setVisible(true);
-
-        // hide again after 3sec idle
         if (timerId.current) clearTimeout(timerId.current);
         timerId.current = setTimeout(() => {
           setVisible(false);
@@ -69,15 +74,14 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 w-full flex items-center justify-between px-6 py-4 z-50 transition-transform duration-300 ${
-          visible ? "translate-y-0" : "-translate-y-full"
-        }`}
+        className={`fixed top-0 left-0 w-full flex items-center justify-between px-6 py-4 z-50 transition-transform transition-colors duration-300 ${visible ? "translate-y-0" : "-translate-y-full"
+          } ${scrolled ? "bg-black/10 backdrop-blur-md" : "bg-transparent"}`}
       >
         {/* Logo */}
         <div className="flex items-center space-x-2">
           <img src={Logo} alt="Logo" className="w-8 h-8" />
           <div className="text-2xl font-bold text-white hidden sm:block">
-            Gaurav
+            Vivek
           </div>
         </div>
 
