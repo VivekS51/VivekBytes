@@ -8,6 +8,9 @@ import Skills from "./sections/Skills";
 import Projects from "./sections/Projects";
 import Experience from "./sections/Experience";
 import Certifications from "./sections/Certifications";
+import Achievements from "./sections/Achievements";
+import Education from "./sections/Education";
+import Timezone from "./sections/Timezone";
 import Contact from "./sections/Contact";
 import Footer from "./sections/Footer";
 import WhatsAppPopup from "./components/WhatsAppPopup";
@@ -31,6 +34,9 @@ export default function App() {
       <Projects />
       <Experience />
       <Certifications />
+      <Achievements />
+      <Education />
+      <Timezone />
       <Contact />
       <Footer />
       <WhatsAppPopup />

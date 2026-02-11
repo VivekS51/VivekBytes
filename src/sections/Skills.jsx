@@ -1,5 +1,5 @@
 import { FaJava, FaReact, FaAws, FaDocker } from 'react-icons/fa';
-import { SiNextdotjs, SiTypescript, SiTailwindcss, SiFastapi, SiPython, SiMongodb, SiAngular, SiCplusplus, SiMysql, SiJavascript, SiKubernetes } from 'react-icons/si';
+import { SiNextdotjs, SiTypescript, SiTailwindcss, SiFastapi, SiPython, SiMongodb, SiAngular, SiCplusplus, SiMysql, SiJavascript, SiKubernetes, SiHtml5, SiCss3, SiSass, SiBootstrap } from 'react-icons/si';
 import { VscAzure } from 'react-icons/vsc';
 import { DiNodejsSmall } from 'react-icons/di';
 import { motion, useMotionValue } from 'framer-motion';
@@ -9,19 +9,24 @@ import { useEffect, useRef, useState } from 'react';
 export default function Skills() {
 
   const skills = [
-    { icon: <SiCplusplus />, name: "C++" },
-    { icon: <SiJavascript />, name: "JavaScript" },
-    { icon: <SiPython />, name: "Python" },
-    { icon: <FaReact />, name: "React" },
-    { icon: <SiTailwindcss />, name: "Tailwind CSS" },
-    { icon: <SiMysql />, name: "MySQL" },
-    { icon: <SiNextdotjs />, name: "Next.js" },
-    { icon: <DiNodejsSmall />, name: "Node.js" },
-    { icon: <FaAws />, name: "AWS" },
-    { icon: <VscAzure />, name: "Azure" },
-    { icon: <FaDocker />, name: "Docker" },
-    { icon: <SiKubernetes />, name: "Kubernetes" },
-    { icon: <SiTypescript />, name: "TypeScript" },
+    { icon: <SiCplusplus />, name: "C++", color: "#00599C", level: 85 },
+    { icon: <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/C_Programming_Language.svg" alt="C" className="w-12 h-12" />, name: "C", color: "#A8B9CC", level: 80 },
+    { icon: <SiJavascript />, name: "JavaScript", color: "#F7DF1E", level: 90 },
+    { icon: <SiPython />, name: "Python", color: "#3776AB", level: 85 },
+    { icon: <SiHtml5 />, name: "HTML", color: "#E34F26", level: 95 },
+    { icon: <SiCss3 />, name: "CSS", color: "#1572B6", level: 95 },
+    { icon: <SiSass />, name: "SCSS", color: "#CC6699", level: 85 },
+    { icon: <SiBootstrap />, name: "Bootstrap", color: "#7952B3", level: 80 },
+    { icon: <FaReact />, name: "React", color: "#61DAFB", level: 90 },
+    { icon: <SiTailwindcss />, name: "Tailwind CSS", color: "#06B6D4", level: 95 },
+    { icon: <SiMysql />, name: "MySQL", color: "#4479A1", level: 80 },
+    { icon: <SiNextdotjs />, name: "Next.js", color: "#FFFFFF", level: 85 },
+    { icon: <DiNodejsSmall />, name: "Node.js", color: "#339933", level: 80 },
+    { icon: <FaAws />, name: "AWS", color: "#FF9900", level: 75 },
+    { icon: <VscAzure />, name: "Azure", color: "#0078D4", level: 70 },
+    { icon: <FaDocker />, name: "Docker", color: "#2496ED", level: 75 },
+    { icon: <SiKubernetes />, name: "Kubernetes", color: "#326CE5", level: 65 },
+    { icon: <SiTypescript />, name: "TypeScript", color: "#3178C6", level: 80 },
   ];
   const repeated = [...skills, ...skills]
 
@@ -124,23 +129,60 @@ opacity-20 blur-[120px] animate-pulse delay-500
         Modern Applications | Modern Technologies
       </motion.p>
 
-      <div className='relative w-full overflow-hidden'>
+      <div className='relative w-full overflow-hidden pt-28 pb-10'>
         <motion.div
           ref={trackRef}
-          className='flex gap-10 text-6xl text-[#1cd8d2]'
+          className='flex gap-10 text-6xl text-gray-400'
           style={{ x, whiteSpace: "nowrap", willChange: "transform" }}
         >
 
           {repeated.map((s, i) => (
             <div
-              key={i} className='flex flex-col items-center gap-2 min-w-[120px]'
+              key={i}
+              className='flex flex-col items-center gap-2 min-w-[120px] group relative cursor-pointer'
               aria-label={s.name}
               title={s.name}
             >
-              <span className='hover:scale-125 transition-transform duration-300'>
-                {s.icon}
+              <span
+                className='transition-all duration-300 transform group-hover:scale-110'
+                style={{
+                  filter: "drop-shadow(0 0 0 rgba(0,0,0,0))",
+                }}
+              >
+                <div
+                  className="transition-all duration-300"
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.filter = `drop-shadow(0 0 20px ${s.color})`;
+                    e.currentTarget.style.color = s.color;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.filter = "drop-shadow(0 0 0 rgba(0,0,0,0))";
+                    e.currentTarget.style.color = ""; // reset to inherited
+                  }}
+                >
+                  {s.icon}
+                </div>
               </span>
-              <p className='text-sm'>
+
+              {/* Stats Tooltip */}
+              <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-32 bg-gray-900 border border-white/10 p-3 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-20">
+                <div className="flex justify-between items-center mb-1">
+                  <span className="text-xs font-bold text-white">{s.name}</span>
+                  <span className="text-xs font-mono text-gray-400">{s.level}%</span>
+                </div>
+                <div className="w-full h-1 bg-gray-700 rounded-full overflow-hidden relative">
+                  <div
+                    className="h-full absolute top-0 left-0 rounded-full transition-all duration-1000 delay-200 ease-out w-0 group-hover:w-[var(--skill-level)]"
+                    style={{
+                      '--skill-level': `${s.level}%`,
+                      backgroundColor: s.color,
+                    }}
+                  />
+                </div>
+              </div>
+
+
+              <p className='text-sm group-hover:text-white transition-colors duration-300'>
                 {s.name}
               </p>
             </div>
@@ -150,6 +192,22 @@ opacity-20 blur-[120px] animate-pulse delay-500
 
       </div>
 
+      <div className="w-full max-w-5xl px-6 mt-16 text-center z-10">
+        <h3 className="text-2xl font-semibold mb-6 text-gray-300">Soft Skills</h3>
+        <div className="flex flex-wrap justify-center gap-4">
+          {["Problem-Solving", "Team Player", "Adaptability", "Critical Thinking"].map((skill, i) => (
+            <motion.span
+              key={i}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ delay: i * 0.1, duration: 0.4 }}
+              className="bg-white/10 hover:bg-white/20 border border-white/5 px-6 py-2 rounded-full text-white/90 text-sm sm:text-base font-medium transition-all"
+            >
+              {skill}
+            </motion.span>
+          ))}
+        </div>
+      </div>
 
     </section>
   )
